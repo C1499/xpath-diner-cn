@@ -10,6 +10,8 @@
 用餐厅小游戏学习 XPath selector。  
 通过餐桌、餐盒和餐点练习 XPath 基础，并逐步过渡到更接近真实网页定位的问题。
 
+在线体验：[https://c1499.github.io/xpath-diner-cn/](https://c1499.github.io/xpath-diner-cn/)
+
 本项目基于 [TopSwagCode/xpath-diner](https://github.com/TopSwagCode/xpath-diner) 改造，加入了中英切换、难度练习、每日一题、随机练习和真实 iframe 关卡。
 
 ## 目录

@@ -142,6 +142,7 @@ var currentAttemptCount = 0;
 var answerRevealed = false;
 var currentChallengeKey = "";
 var resultTimeout;
+var projectUrl = "https://c1499.github.io/xpath-diner-cn/";
 
 
 $(document).ready(function(){
@@ -151,11 +152,11 @@ $(document).ready(function(){
     var type = $(this).attr("type");
 
     if(type == "twitter"){
-      var url = "https://twitter.com/intent/tweet?text=" + encodeURIComponent(getText("shareEmailBody")) + "&hashtags=xpath,xpathdiner,webdev&url=http%3A%2F%2Fxpath.topswagcode.com%2F";
+      var url = "https://twitter.com/intent/tweet?text=" + encodeURIComponent(getText("shareEmailBody")) + "&hashtags=xpath,xpathdiner,webdev&url=" + encodeURIComponent(projectUrl);
     } else if (type == "facebook") {
-      var url = "https://www.facebook.com/sharer.php?src=sp&u=http%3A%2F%2Fxpath.topswagcode.com";
+      var url = "https://www.facebook.com/sharer.php?src=sp&u=" + encodeURIComponent(projectUrl);
     } else if (type == "email") {
-      var url = "mailto:?subject=" + encodeURIComponent(getText("shareEmailSubject")) + "&body=" + encodeURIComponent(getText("shareEmailBody") + "\n\nhttp://xpath.topswagcode.com");
+      var url = "mailto:?subject=" + encodeURIComponent(getText("shareEmailSubject")) + "&body=" + encodeURIComponent(getText("shareEmailBody") + "\n\n" + projectUrl);
     }
 
     PopupCenter(url, "title", 600, 450);

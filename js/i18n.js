@@ -20,8 +20,8 @@ var i18n = {
     inputPlaceholder: "输入 XPath selector",
     run: "运行",
     skipHelp: "输入数字可跳转关卡。<br/>例如：输入 \"5\" 跳到第 5 关。<br/>*/",
-    footerMade: "原项目由 <a href=\"http://www.topswagcode.com\">TopSwagCode</a> 制作，本地版本已做中文化和部署优化。",
-    footerRepo: "反馈或问题可以在 <a href=\"https://github.com/TopSwagCode/xpath-diner\">GitHub 仓库</a> 查看项目来源。",
+    footerMade: "基于 <a href=\"https://github.com/TopSwagCode/xpath-diner\">TopSwagCode/xpath-diner</a> 改造，本地版本已做中文化和部署优化。",
+    footerRepo: "反馈或问题可以在 <a href=\"https://github.com/C1499/xpath-diner-cn\">GitHub 仓库</a> 查看当前版本。",
     examples: "示例",
     chooseLevel: "选择关卡",
     resetProgress: "重置进度",
@@ -69,8 +69,8 @@ var i18n = {
     winner: '<span class="winner"><strong>全部通关！</strong><br>你已经掌握了这些 XPath selector。</span>',
     dailyMenu: "每日",
     randomMenu: "随机",
-    shareEmailSubject: "XPath Diner",
-    shareEmailBody: "这是一个用小游戏学习和练习 XPath selector 的项目。"
+    shareEmailSubject: "XPath Diner CN",
+    shareEmailBody: "XPath Diner CN：一个用餐厅小游戏学习和练习 XPath selector 的项目。"
   },
   en: {
     pageTitle: "XPath Diner - Practice XPath selectors through play",
@@ -90,8 +90,8 @@ var i18n = {
     inputPlaceholder: "Type an XPath selector",
     run: "Run",
     skipHelp: "Type a number to skip to a level.<br/>Example: \"5\" for level 5.<br/>*/",
-    footerMade: "Original project by <a href=\"http://www.topswagcode.com\">TopSwagCode</a>. This fork adds localization, local deployment fixes, and practice modes.",
-    footerRepo: "Feedback or questions can refer to the <a href=\"https://github.com/TopSwagCode/xpath-diner\">GitHub repository</a>.",
+    footerMade: "Based on <a href=\"https://github.com/TopSwagCode/xpath-diner\">TopSwagCode/xpath-diner</a>. This fork adds localization, local deployment fixes, and practice modes.",
+    footerRepo: "Feedback or questions can refer to the <a href=\"https://github.com/C1499/xpath-diner-cn\">GitHub repository</a> for this version.",
     examples: "Examples",
     chooseLevel: "Choose a level",
     resetProgress: "Reset Progress",
@@ -139,8 +139,8 @@ var i18n = {
     winner: '<span class="winner"><strong>You did it!</strong><br>You have practiced these XPath selectors.</span>',
     dailyMenu: "Daily",
     randomMenu: "Random",
-    shareEmailSubject: "XPath Diner",
-    shareEmailBody: "A small game for learning and practicing XPath selectors."
+    shareEmailSubject: "XPath Diner CN",
+    shareEmailBody: "XPath Diner CN: a small diner-themed game for learning and practicing XPath selectors."
   }
 };
 

@@ -10,6 +10,8 @@
 A diner-themed game for learning XPath selectors.  
 Practice XPath fundamentals through tables, bentos, and food elements, then move toward locator problems that resemble real page structures.
 
+Live site: [https://c1499.github.io/xpath-diner-cn/](https://c1499.github.io/xpath-diner-cn/)
+
 This project is based on [TopSwagCode/xpath-diner](https://github.com/TopSwagCode/xpath-diner). It adds Chinese/English UI, difficulty-based practice, daily challenges, random practice, and real iframe levels.
 
 ## Table of Contents
