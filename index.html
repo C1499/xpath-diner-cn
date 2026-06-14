@@ -1,27 +1,25 @@
----
-title: Xpath game
-permalink: /xpath/
----
-
 <!DOCTYPE html>
-<html>
+<html lang="zh-CN">
   <head>
-    <title>Xpath Diner - Where we feast on Xpath Selectors!</title>
-    <script src="../xpath-diner/js/jquery.js" type="text/javascript" charset="utf-8"></script>
-    <script src="../xpath-diner/js/levels.js" type="text/javascript" charset="utf-8"></script>
-    <script src="../xpath-diner/js/restaurant.js" type="text/javascript" charset="utf-8"></script>
-    <script src="../xpath-diner/js/jquery.mCustomScrollbar.min.js"></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>XPath Diner - 用小游戏练 XPath selector</title>
+    <script src="js/jquery.js" type="text/javascript" charset="utf-8"></script>
+    <script src="js/i18n.js?v=20260613" type="text/javascript" charset="utf-8"></script>
+    <script src="js/levels.js?v=20260613" type="text/javascript" charset="utf-8"></script>
+    <script src="js/challenges.js?v=20260613" type="text/javascript" charset="utf-8"></script>
+    <script src="js/restaurant.js?v=20260613" type="text/javascript" charset="utf-8"></script>
+    <script src="js/jquery.mCustomScrollbar.min.js"></script>
 
-    <link rel="icon" type="image/png" href="../xpath-diner/favicon.png">
-    <link href='https://fonts.googleapis.com/css?family=Exo+2:200,400,600,400italic,600italic' rel='stylesheet'>
-    <link href="https://fonts.googleapis.com/css?family=Satisfy" rel="stylesheet">
-    <link rel="stylesheet" href="../xpath-diner/css/jquery.mCustomScrollbar.css" type="text/css" media="screen" title="no title" charset="utf-8">
-    <link rel="stylesheet" href="../xpath-diner/css/style.css" type="text/css" media="screen" title="no title" charset="utf-8">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="stylesheet" href="css/jquery.mCustomScrollbar.css" type="text/css" media="screen" title="no title" charset="utf-8">
+    <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" title="no title" charset="utf-8">
 
+    <meta name="description" content="一个用闯关方式学习和练习 XPath 选择器的小游戏。">
     <meta property="og:url"           content="http://xpath.topswagcode.com" />
     <meta property="og:type"          content="website" />
-    <meta property="og:title"         content="Xpath Diner" />
-    <meta property="og:description"   content="A fun game to help you learn and practice Xpath selectors." />
+    <meta property="og:title"         content="XPath 餐厅" />
+    <meta property="og:description"   content="一个用闯关方式学习和练习 XPath 选择器的小游戏。" />
     <meta property="og:image"         content="https://flukeout.github.io/images/fb-share.jpg" />
   </head>
 
@@ -29,12 +27,12 @@ permalink: /xpath/
     <div class="left-col">
 
       <header>
-        Xpath Diner
+        <span data-i18n="appTitle">XPath Diner</span>
         <div class="logo">
           <plate><apple /></plate>
         </div>
         <span class="share-menu">
-          Share
+          <span data-i18n="share">分享</span>
           <a class="share-twitter" type="twitter" href="#"></a>
           <a class="share-facebook" type="facebook" href="#"></a>
           <a class="share-email" type="email" href="#"></a>
@@ -44,34 +42,23 @@ permalink: /xpath/
       <h2 class="order"></h2>
 
       <div class="note">
-        <h3>No worries, you've got this!</h3>
-        <p>
-          You're about to learn Xpath Selectors!
-          Selectors are how you pick which elements to focus.
-        </p>
+        <h3 data-i18n="noteTitle">从第一关开始，用餐桌小游戏练 XPath selector。</h3>
+        <p data-i18n-html="noteIntro">XPath selector 可以从 HTML 或 XML 中定位目标 element。</p>
 
-        <h4>Exhibit 1 - A Xpath Selector</h4>
+        <h4 data-i18n="noteExampleTitle">示例 1 - 一个 XPath selector</h4>
 
         <pre>
-//Div[@class='header']
+//div[@class='header']
 </pre>
 
-        <p>
-          Here, the "//" and "Div" means it will check all paths until it finds a Div element in your document (XML/HTML). "[@class='header']" means the Div has to contain a class attribute with the value header.
-        </p>
-        <p>
-          To play, type in a Xpath selector in the editor below to select the correct items on the table.If you get it right, you'll advance to the next level.
-        </p>
-        <p>
-          Hover over the items on the table to see their HTML markup.
-        </p>
-        <p>
-          Get help with selectors on the right! &rarr;
-        </p>
-        <a class="note-toggle" href="#">Ok, got it!</a>
+        <p data-i18n-html="noteExampleExplain"></p>
+        <p data-i18n="noteHowTo"></p>
+        <p data-i18n="noteHover"></p>
+        <p data-i18n="noteHelp"></p>
+        <a class="note-toggle" href="#" data-i18n="noteOk">明白了</a>
       </div>
 
-      <a class="note-toggle" href="#">Help, I'm stuck!</a>
+      <a class="note-toggle" href="#" data-i18n="noteToggle">查看帮助</a>
 
       <div class="game-wrapper">
         <div class="table-wrapper">
@@ -86,16 +73,24 @@ permalink: /xpath/
       </div>
 
       <div class="editor">
+        <div class="result-panel">
+          <div class="result" role="status" aria-live="polite"></div>
+          <div class="completion-actions" hidden>
+            <span class="completion-note"></span>
+            <button class="completion-random-action" type="button"></button>
+            <button class="completion-back-main" type="button" data-i18n="backToMain">回主线</button>
+          </div>
+        </div>
 
         <div class="editor-pane">
           <div class="input-header">
-            <div class="file-name">webguitest.cs</div> C# Editor
+            <div class="file-name">selector.xpath</div> <span data-i18n="editorTitle">XPath 编辑器</span>
           </div>
           <div class="file-window css-view">
             <div class="line-numbers">
               1<br/>2<br/>3<br/>4<br/>5<br/>6<br/>7<br/>8<br/>9<br/>10<br/>11<br/>12<br/>13<br/>14<br/>15<br/>16<br/>17<br/>18<br/>19<br/>20
             </div>
-              <input class="input-strobe" type="text" placeholder="Type in a Xpath selector"/><span class="plus">+</span><div class="enter-button">enter</div>
+              <input class="input-strobe" type="text" data-i18n-placeholder="inputPlaceholder" placeholder="输入 XPath selector"/><span class="plus">+</span><button class="enter-button" type="button" data-i18n="run">运行</button>
             <div>
             {<br/>
 
@@ -103,8 +98,7 @@ permalink: /xpath/
             <div class="help">
               <br/>
               /* <br/>
-              Type a number to skip to a level.<br/>
-              Ex &rarr; "5" for level 5 <br/>*/
+              <span data-i18n-html="skipHelp">输入数字可跳转关卡。<br/>例如：输入 "5" 跳到第 5 关。<br/>*/</span>
             </div>
           </div>
         </div>
@@ -112,7 +106,7 @@ permalink: /xpath/
         <div class="editor-pane html-view">
           <div class="input-header">
             <div class="file-name">table.html</div>
-            HTML Viewer
+            <span data-i18n="htmlTitle">HTML 结构</span>
           </div>
           <div class="file-window">
             <div class="line-numbers">1<br/>2<br/>3<br/>4<br/>5<br/>6<br/>7<br/>8<br/>9<br/>10<br/>11<br/>12<br/>13<br/>14<br/>15<br/>16<br/>17<br/>18<br/>19<br/>20</div>
@@ -122,11 +116,11 @@ permalink: /xpath/
       </div>
 
       <div class="what-is-this">
-        <p>
-          Made by <a href="http://www.topswagcode.com">TopSwagCode</a> &mdash; come say hi!
+        <p data-i18n-html="footerMade">
+          原项目由 <a href="http://www.topswagcode.com">TopSwagCode</a> 制作，本地版本已做中文化和部署优化。
         </p>
-        <p>
-          Have feedback or questions? Please file an isssue on <a href="https://github.com/kiksen1987/xpath-diner/issues">the Github repo</a>.
+        <p data-i18n-html="footerRepo">
+          反馈或问题可以在 <a href="https://github.com/TopSwagCode/xpath-diner">GitHub 仓库</a> 查看项目来源。
         </p>
       </div>
 
@@ -137,6 +131,12 @@ permalink: /xpath/
     <div class="right-col">
 
       <div class="help-wrapper">
+        <div class="settings-panel">
+          <div class="segmented-control language-control" aria-label="Language">
+            <button class="language-option" type="button" data-language="zh-CN" data-i18n="languageZh">中文</button>
+            <button class="language-option" type="button" data-language="en" data-i18n="languageEn">EN</button>
+          </div>
+        </div>
 
         <h1 class="level-header">
           <span class="level-text"></span>
@@ -150,20 +150,85 @@ permalink: /xpath/
 
         <div class="level-progress"><div class="progress"></div></div>
 
+        <div class="challenge-panel">
+          <div class="segmented-control difficulty-control" aria-label="Difficulty">
+            <button class="difficulty-option" type="button" data-difficulty="easy" data-i18n="difficultyEasy">简单</button>
+            <button class="difficulty-option" type="button" data-difficulty="medium" data-i18n="difficultyMedium">中等</button>
+            <button class="difficulty-option" type="button" data-difficulty="hard" data-i18n="difficultyHard">困难</button>
+          </div>
+          <div class="challenge-actions">
+            <button class="challenge-button daily-challenge" type="button" data-i18n="dailyChallenge">每日一题</button>
+            <button class="challenge-button random-challenge" type="button" data-i18n="randomChallenge">随机练习</button>
+          </div>
+        </div>
+
+        <details class="quick-guide">
+          <summary data-i18n="quickGuideTitle">写 XPath 的 4 步</summary>
+          <p data-i18n="quickGuideIntro"></p>
+          <ol>
+            <li>
+              <span data-i18n="quickGuideStepTag"></span>
+              <code>//button</code>
+            </li>
+            <li>
+              <span data-i18n="quickGuideStepAttribute"></span>
+              <code>//*[@data-testid='submit']</code>
+            </li>
+            <li>
+              <span data-i18n="quickGuideStepScope"></span>
+              <code>//form[@id='login']//input[@name='email']</code>
+            </li>
+            <li>
+              <span data-i18n="quickGuideStepFallback"></span>
+              <code>//label[normalize-space()='Email']/following-sibling::input[1]</code>
+            </li>
+          </ol>
+          <div class="quick-patterns" aria-label="XPath patterns">
+            <div>
+              <code>//tag</code>
+              <span data-i18n="quickPatternTag"></span>
+            </div>
+            <div>
+              <code>//tag[@attribute='value']</code>
+              <span data-i18n="quickPatternAttribute"></span>
+            </div>
+            <div>
+              <code>//A//B</code>
+              <span data-i18n="quickPatternDescendant"></span>
+            </div>
+            <div>
+              <code>(//A)[3]</code>
+              <span data-i18n="quickPatternIndex"></span>
+            </div>
+            <div>
+              <code>contains(@class,'active')</code>
+              <span data-i18n="quickPatternClass"></span>
+            </div>
+            <div>
+              <code>iframe</code>
+              <span data-i18n="quickPatternFrame"></span>
+            </div>
+          </div>
+        </details>
+
         <div class="display-help">
           <h3 class="selector-name"></h3>
           <h2 class="title"></h2>
+          <div class="answer-gate" hidden>
+            <p class="answer-gate-message"></p>
+            <button class="answer-reveal-button" type="button" data-i18n="showAnswer">查看答案</button>
+          </div>
           <h3 class="syntax"></h3>
           <div class="hint"></div>
-          <h4 class="examples-title">Examples</h4>
+          <h4 class="examples-title" data-i18n="examples">示例</h4>
           <div class="examples"></div>
         </div>
       </div>
 
       <div class="level-menu">
-        <h2>Choose a level</h2>
+        <h2 data-i18n="chooseLevel">选择关卡</h2>
         <div class="levels"><!-- level links are inserted here--></div>
-        <a class="reset-progress" href="#">Reset Progress</a>
+        <a class="reset-progress" href="#" data-i18n="resetProgress">重置进度</a>
       </div>
 
       <div class="level-menu-toggle-wrapper">
@@ -173,7 +238,7 @@ permalink: /xpath/
     </div><!-- /right-col -->
 
   <script>
-    if(location.hostname != "localhost"){
+    if(location.hostname != "localhost" && location.hostname != "127.0.0.1"){
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
         (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
         m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
@@ -187,4 +252,3 @@ permalink: /xpath/
 
   </body>
 </html>
-
